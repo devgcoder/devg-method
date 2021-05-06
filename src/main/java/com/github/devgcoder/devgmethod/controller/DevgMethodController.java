@@ -116,11 +116,11 @@ public class DevgMethodController {
 		}
 		for (Object object : objects) {
 //			String jsonStr = objectMapper.writeValueAsString(object);
-			devgMethodValue = objectMapper.readValue(object.toString(), DevgMethodValue.class);
-			String name = devgMethodValue.getName();
+			DevgMethodValue tempDevgMethodValue = objectMapper.readValue(object.toString(), DevgMethodValue.class);
+			String name = tempDevgMethodValue.getName();
 			if (null != name && name.equals(methodAnnotatedName)) {
-				devgMethodValue.setDesc(desc);
-				return devgMethodValue;
+				tempDevgMethodValue.setDesc(desc);
+				return tempDevgMethodValue;
 			}
 		}
 		return devgMethodValue;
